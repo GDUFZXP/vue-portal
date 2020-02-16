@@ -3,6 +3,14 @@ server:
   address: 127.0.0.1
 
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+    date-format: yyyy-MM-dd HH:mm
+    jackson:
+      date-format: yyyy-MM-dd HH:mm
+      time-zone: GMT+8
   datasource:
     url: jdbc:mysql://192.168.79.128:3306/cpdflow
     username: root

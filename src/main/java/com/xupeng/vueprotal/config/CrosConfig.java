@@ -1,4 +1,4 @@
-package com.xupeng.vueprotal;
+package com.xupeng.vueprotal.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

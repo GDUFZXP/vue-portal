@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.Date;
 import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,7 +25,7 @@ class VueBookDaoTest {
 
     @Test
     public void testPage(){
-        PageRequest pageRequest = PageRequest.of(1,10);
+        PageRequest pageRequest = PageRequest.of(0,100);
         Page<VueBook> resultPage = vueBookDao.findAll(pageRequest);
         System.out.println("totalPage:"+resultPage.getTotalPages()+";currentPageSize:"+resultPage.getSize());
         resultPage.forEach(new Consumer<VueBook>() {
@@ -33,6 +34,15 @@ class VueBookDaoTest {
                 System.out.println(JSONObject.toJSON(vueBook));
             }
         });
-
     }
+
+    @Test
+    public void testSave(){
+        VueBook vueBook = new VueBook();
+        vueBook.setName("精通JavaScript");
+        vueBook.setAuthor("张龙");
+        VueBook data = vueBookDao.save(vueBook);
+        System.out.println(JSONObject.toJSON(data));
+    }
+
 }
